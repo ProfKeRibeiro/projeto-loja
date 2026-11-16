@@ -1,0 +1,262 @@
+/* ========== VARIÁVEIS CSS ========== */
+:root {
+  /* Cores - Paleta Principal */
+  /*capa*/
+  --cor-primaria-claro: rgba(39, 5, 45, 0.92);
+  --cor-secundaria-claro: rgba(5, 20, 45, 0.30);
+  /*outros*/
+  --cor-fundo-body: #f5f5f5;
+  --cor-fundo-nav: #444;
+  --cor-fundo-header: #222;
+  --cor-fundo-produto: rgb(209, 209, 213);
+  --cor-fundo-promo: rgba(255, 217, 0, 0.819);
+  --cor-fundo-nav-transparente: rgba(255, 255, 255, 0.6);
+  --cor-fundo-footer: #ddd;
+  --cor-sombra-carrinho: rgba(0, 0, 0, 0.3);
+  
+  /* Cores - Texto */
+  --cor-texto-branco: white;
+  --cor-texto-principal: #111;
+  --cor-texto-preco: #382e2e;
+  --cor-texto-promo: #ff3b30;
+
+}
+
+/* ========== ESTILOS ========== */
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--cor-fundo-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: var(--cor-fundo-header);
+  color: var(--cor-texto-branco);
+  padding: 20px 16px;
+}
+
+.capa {
+  color: var(--cor-texto-branco);
+  background:
+    linear-gradient(
+      90deg,
+      var(--cor-primaria-claro),
+      var(--cor-secundaria-claro)
+    ),
+    url(tenis.jpg) center / cover no-repeat;
+}
+
+.painel {
+  background-color: var(--cor-fundo-nav-transparente);
+}
+
+.titulo {
+  display: block;
+  margin: 0 0 16px;
+  font-size: 2.25rem;
+}
+
+nav {
+  background-color: var(--cor-fundo-nav);
+  padding: 8px;
+  text-align: center;
+}
+
+.menu-link {
+  display: inline-block;
+  color: var(--cor-texto-branco);
+  padding: 10px 12px;
+  text-decoration: none;
+}
+
+.menu-link:hover,
+.menu-link:focus-visible {
+  text-decoration: underline;
+}
+
+main {
+  width: 100%;
+}
+
+.vitrine {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 16px;
+  text-align: left;
+}
+
+.vitrine h2 {
+  margin-top: 0;
+}
+
+.produto {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 315px;
+  height: 330px;
+  margin: 0 1% 16px 0;
+  padding: 16px;
+  background-color: var(--cor-fundo-produto);
+  border-radius: 8px;
+  color: var(--cor-texto-branco);
+  text-align: center;
+  vertical-align: top;
+  position: relative;
+}
+
+.vitrine h2 {
+  margin-bottom: 0;
+}
+
+.produto figure {
+  margin: 0;
+}
+.btn-comprar {
+  background-color: var(--cor-texto-promo);
+  color: var(--cor-texto-branco);
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-comprar:hover {
+  transform: translateX(-50%) scale(1.08);
+}
+
+.produto img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.preco {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.preco legend {
+  display: block;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: var(--cor-texto-preco);
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.preco-novo {
+  color: var(--cor-texto-promo);
+  font-size: 1.1rem;
+}
+
+@keyframes piscar {
+  0%, 100% {
+    opacity: 1;    
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(255, 217, 0, 0.8);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.08);
+    box-shadow: 0 0 18px rgba(255, 140, 0, 1);
+  }
+}
+
+.promo {
+  background-color: var(--cor-fundo-promo);
+  border-radius: 8px;
+  color: var(--cor-texto-principal);
+  padding: 10px;
+  margin-bottom: 15px;
+  animation: piscar 1s infinite;
+}
+.invisivel {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  margin: 0;
+  padding: 8px 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+.carrinho {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background-color: var(--cor-fundo-header);
+  border-radius: 8px;
+  color: var(--cor-texto-branco);
+  box-shadow: 0 3px 10px var(--cor-sombra-carrinho);
+}
+
+.carrinho-icone {
+  font-size: 1.2rem;
+}
+
+.carrinho-quantidade {
+  min-width: 20px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background-color: var(--cor-texto-promo);
+  color: var(--cor-texto-branco);
+  text-align: center;
+}
+
+#contatos {
+  padding: 0 16px;
+}
+
+.redes-sociais {
+  display: block;
+  padding-left: 16px;
+  text-align: left;
+}
+
+.redes-sociais img {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 8px 8px 8px 0;
+  object-fit: contain;
+}
+
+a[href*="instagram"] img:hover {
+  filter: brightness(0) saturate(100%) invert(38%) sepia(96%) saturate(749%) hue-rotate(329deg) brightness(99%) contrast(101%);
+}
+
+a[href*="facebook"] img:hover {
+  filter: brightness(0) saturate(100%) invert(34%) sepia(99%) saturate(749%) hue-rotate(205deg) brightness(99%) contrast(101%);
+}
+
+footer {
+  background-color: var(--cor-fundo-footer);
+  padding: 15px;
+  text-align: center;
+  margin-top: auto;
+}
